@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background-color: #f8f5ef;
+    color: #302820;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  #root {
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: #b69a65;
+    color: #fff;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font-family: inherit;
+  }
+
+  /* Consistent focus styling for keyboard users */
+  :focus-visible {
+    outline: 2px solid #b69a65;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #efeae0;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #c3b6a6;
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a8988a;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-[0.68rem] font-medium uppercase tracking-mega text-taupe sm:text-xs;
+  }
+
+  .heading-xl {
+    font-size: clamp(2.6rem, 7vw, 5.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+  }
+
+  .heading-lg {
+    font-size: clamp(2.1rem, 5vw, 3.9rem);
+    line-height: 1.06;
+    letter-spacing: -0.015em;
+  }
+
+  .heading-md {
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    line-height: 1.14;
+  }
+
+  .body-lg {
+    font-size: clamp(0.95rem, 1.15vw, 1.06rem);
+    line-height: 1.75;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full text-[0.72rem] font-medium uppercase tracking-[0.16em] transition-all duration-300 ease-soft sm:text-xs;
+  }
+
+  .btn-primary {
+    @apply btn bg-espresso px-6 py-3.5 text-ivory hover:bg-ink sm:px-8 sm:py-4;
+    box-shadow: 0 10px 30px -14px rgba(48, 40, 32, 0.75);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 34px -14px rgba(48, 40, 32, 0.7);
+  }
+
+  .btn-gold {
+    @apply btn bg-gold px-6 py-3.5 text-espresso hover:bg-[#a98d5a] sm:px-8 sm:py-4;
+    box-shadow: 0 10px 30px -14px rgba(182, 154, 101, 0.8);
+  }
+
+  .btn-gold:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    @apply btn border border-espresso/25 px-6 py-3.5 text-espresso hover:border-espresso/60 hover:bg-espresso/[0.04] sm:px-8 sm:py-4;
+  }
+
+  .btn-light-outline {
+    @apply btn border border-ivory/35 px-6 py-3.5 text-ivory hover:border-ivory/80 hover:bg-ivory/10 sm:px-8 sm:py-4;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-espresso/15 bg-white px-4 py-3 text-sm text-espresso transition-colors duration-200 placeholder:text-taupe/80 focus:border-gold focus:outline-none;
+  }
+
+  .field-dark {
+    @apply w-full rounded-xl border border-ivory/20 bg-white/[0.06] px-4 py-3 text-sm text-ivory transition-colors duration-200 placeholder:text-ivory/40 focus:border-gold focus:bg-white/10 focus:outline-none;
+  }
+
+  .label {
+    @apply mb-2 block text-[0.66rem] font-medium uppercase tracking-[0.18em] text-espresso/55;
+  }
+
+  .label-dark {
+    @apply mb-2 block text-[0.66rem] font-medium uppercase tracking-[0.18em] text-ivory/55;
+  }
+
+  .chip {
+    @apply rounded-full border border-espresso/15 px-4 py-2 text-[0.68rem] font-medium uppercase tracking-[0.14em] text-espresso/60 transition-all duration-300 hover:border-espresso/40 hover:text-espresso;
+  }
+
+  .chip-active {
+    @apply border-espresso bg-espresso text-ivory hover:border-espresso hover:text-ivory;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
